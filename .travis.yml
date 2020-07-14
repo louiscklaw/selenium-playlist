@@ -5,14 +5,6 @@
 # You can import up to 25 other configs in total.
 os: linux
 
-language: node_js
-
-node_js:
-  - 10
-cache:
-  - npm
-  - pip
-
 script:
   - echo "helloworld"
 
