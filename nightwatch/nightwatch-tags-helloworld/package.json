@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo test helloworld",
-    "helloworld": "nightwatch ./tests/helloworld.js",
-    "dev":"nightwatch --tag login"
+    "helloworld": "nightwatch --tag login"
   },
   "keywords": [],
   "author": "",

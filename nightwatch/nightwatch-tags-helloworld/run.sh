@@ -4,5 +4,4 @@ set -ex
 
 yarn
 
-yarn test
 yarn helloworld
