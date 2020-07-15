@@ -20,7 +20,9 @@ jobs:
   include:
     - stage: Test
       script:
+        - cd nightwatch
         - ./test.sh
+        - cd ..
 
     - stage: Merge
       script:
