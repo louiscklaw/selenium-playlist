@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nightwatch",
-    "helloworld": "nightwatch",
-    "dev":"nightwatch ./tests/helloworld.js  --headless"
+    "test": "echo test helloworld",
+    "helloworld": "nightwatch ./tests/helloworlds/test_ecosia.js",
+    "group_helloworlds": "nightwatch --group helloworlds",
+    "dev":"nightwatch ./test/helloworld.js  --headless"
   },
   "keywords": [],
   "author": "",

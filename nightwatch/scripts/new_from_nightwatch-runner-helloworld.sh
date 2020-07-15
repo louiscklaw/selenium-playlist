@@ -9,9 +9,8 @@ TEST=`echo $PWD|rev |cut -d'/' -f1 |rev`
 
 git checkout -b test/$TEST
 
-
-rsync -avz --exclude 'node_modules' --exclude 'public' ../nightwatch-helloworld/ .
+rsync -avz --exclude 'node_modules' --exclude 'public' ../nightwatch-runner-helloworld/ .
 
 yarn
 
-yarn test
+yarn group_helloworlds

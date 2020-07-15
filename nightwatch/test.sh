@@ -2,6 +2,8 @@
 
 set -ex
 
+# https://nightwatchjs.org/guide/running-tests/#nightwatch-runner
+
 cd nightwatch-helloworld
   ./run.sh
 cd ..

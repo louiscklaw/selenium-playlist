@@ -1,8 +1,11 @@
-describe('Ecosia.org Demo', function() {
 
-  before(browser => browser.url('https://www.ecosia.org/'));
+before(browser => browser.url('https://www.ecosia.org/'));
 
-  test('Demo test ecosia.org', function (browser) {
+after(browser => browser.end());
+
+module.exports = {
+  '@tags': ['login', 'sanity'],
+  'demo login test': function (browser) {
     browser
       .waitForElementVisible('body')
       .assert.titleContains('Ecosia')
@@ -12,7 +15,5 @@ describe('Ecosia.org Demo', function() {
       .click('button[type=submit]')
       .assert.containsText('.mainline-results', 'Nightwatch.js')
       .saveScreenshot('./testscreenshot.png')
-  });
-
-  after(browser => browser.end());
-});
+  }
+};

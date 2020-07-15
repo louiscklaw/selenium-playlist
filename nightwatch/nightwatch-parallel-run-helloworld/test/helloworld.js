@@ -11,7 +11,6 @@ describe('Ecosia.org Demo', function() {
       .assert.visible('button[type=submit]')
       .click('button[type=submit]')
       .assert.containsText('.mainline-results', 'Nightwatch.js')
-      .saveScreenshot('./testscreenshot.png')
   });
 
   after(browser => browser.end());

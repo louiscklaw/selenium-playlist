@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nightwatch",
-    "helloworld": "nightwatch",
-    "dev":"nightwatch ./tests/helloworld.js  --headless"
+    "test": "echo test helloworld",
+    "helloworld": "nightwatch ./tests/helloworld.js",
+    "dev":"nightwatch --tag login"
   },
   "keywords": [],
   "author": "",

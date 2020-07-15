@@ -3,11 +3,12 @@
 const Services = {}; loadServices();
 
 module.exports = {
+  test_workers: true,
   output_folder: "reports/",
 
   // An array of folders (excluding subfolders) where your tests are located;
   // if this is not specified, the test source must be passed as the second argument to the test runner.
-  src_folders: [],
+  src_folders: ['./tests'],
 
   // See https://nightwatchjs.org/guide/working-with-page-objects/
   page_objects_path: '',
@@ -35,10 +36,9 @@ module.exports = {
       },
 
       desiredCapabilities: {
-        browserName : 'firefox',
-        alwaysMatch: {
-          acceptInsecureCerts: true
-        }
+        "browserName": "chrome",
+        "javascriptEnabled": true,
+        "acceptSslCerts": true
       },
 
       webdriver: {
