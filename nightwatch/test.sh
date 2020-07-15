@@ -27,3 +27,7 @@ cd ..
 cd nightwatch-tags-helloworld
   ./run.sh
 cd ..
+
+cd nightwatch-pageobject-helloworld
+  ./run.sh
+cd ..
