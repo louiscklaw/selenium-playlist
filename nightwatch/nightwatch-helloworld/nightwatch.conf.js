@@ -3,6 +3,8 @@
 const Services = {}; loadServices();
 
 module.exports = {
+  output_folder: "reports/",
+
   // An array of folders (excluding subfolders) where your tests are located;
   // if this is not specified, the test source must be passed as the second argument to the test runner.
   src_folders: [],
@@ -33,7 +35,15 @@ module.exports = {
       },
 
       desiredCapabilities: {
-        browserName : 'firefox'
+        browserName : 'firefox',
+        alwaysMatch: {
+          acceptInsecureCerts: true,
+          'moz:firefoxOptions': {
+            args: [
+              '-headless'
+            ],
+          }
+        }
       },
 
       webdriver: {
@@ -42,7 +52,7 @@ module.exports = {
       }
     },
 
-    
+
 
     firefox: {
       desiredCapabilities : {

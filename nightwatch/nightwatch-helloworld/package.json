@@ -1,4 +1,14 @@
 {
+  "name": "nightwatch-helloworld",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nightwatch ./test/helloworld.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "chromedriver": "^83.0.1",
     "geckodriver": "^1.19.1",
