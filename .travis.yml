@@ -40,3 +40,4 @@ stages:
 
 import:
   - credentials.yml
+  - webdriver-io/.travis.yml
