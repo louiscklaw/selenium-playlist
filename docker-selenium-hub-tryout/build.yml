@@ -2,6 +2,8 @@ docker-selenium-hub-tryout:
   runs-on: ubuntu-latest
   steps:
     - uses: actions/checkout@v2
+      with:
+        submodules: 'recursive'
 
     - run: |
         cd $HOME/_ref/docker-selenium
