@@ -10,11 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
   
       - run: |
-          cd $HOME/_ref/docker-selenium
+          cd $GITHUB_WORKSPACE/_ref/docker-selenium
             docker-compose -f docker-compose-v3.yml up
-          cd $HOME
+          cd $GITHUB_WORKSPACE
+  
   
       # - run: |
       #     sudo apt update
@@ -52,6 +55,7 @@ jobs:
             docker-compose -f docker-compose-v3.yml up
           cd $GITHUB_WORKSPACE
   
+  
 
   # 
   # /home/logic/_workspace/selenium-playlist/github-build-merger/subjob.yml
@@ -84,7 +88,7 @@ jobs:
           github-build-merger-tryout/test.sh
   
   merge:
-    needs: [test_merger, docker-selenium-hub-tryout, chrome-selenium-hub-tryout]
+    needs: [test_merger, chrome-selenium-hub-tryout, docker-selenium-hub-tryout]
     runs-on: ubuntu-latest
     steps:
       - name: checkout
