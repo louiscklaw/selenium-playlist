@@ -15,7 +15,7 @@ jobs:
   
       - run: |
           cd $GITHUB_WORKSPACE/_ref/docker-selenium
-            docker-compose -f docker-compose-v3.yml up
+            docker-compose -f docker-compose-v3.yml up -d
           cd $GITHUB_WORKSPACE
   
   
@@ -55,7 +55,7 @@ jobs:
   
       - run: |
           cd $GITHUB_WORKSPACE/_ref/docker-selenium
-            docker-compose -f docker-compose-v3.yml up
+            docker-compose -f docker-compose-v3.yml up -d
           cd $GITHUB_WORKSPACE
   
   
