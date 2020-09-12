@@ -1,0 +1,11 @@
+name: master_build
+
+on: [push]
+
+jobs:
+  appium-helloworld-tryout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - run: echo 'helloworld'
