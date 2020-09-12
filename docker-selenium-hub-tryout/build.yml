@@ -6,6 +6,6 @@ docker-selenium-hub-tryout:
         submodules: 'recursive'
 
     - run: |
-        cd $HOME/_ref/docker-selenium
+        cd $GITHUB_WORKSPACE/_ref/docker-selenium
           docker-compose -f docker-compose-v3.yml up
-        cd $HOME
+        cd $GITHUB_WORKSPACE
