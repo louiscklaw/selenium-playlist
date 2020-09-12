@@ -4,9 +4,9 @@ chrome-selenium-hub-tryout:
     - uses: actions/checkout@v2
 
     - run: |
-      cd $HOME/_ref/docker-selenium
-        docker-compose -f docker-compose-v3.yml up
-      cd $HOME
+        cd $HOME/_ref/docker-selenium
+          docker-compose -f docker-compose-v3.yml up
+        cd $HOME
 
     # - run: |
     #     sudo apt update
