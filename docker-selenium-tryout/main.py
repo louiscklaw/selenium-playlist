@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 # https://www.selenium.dev/selenium/docs/api/py/webdriver_remote/selenium.webdriver.remote.webdriver.html#module-selenium.webdriver.remote.webdriver
 # https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities
+import os,sys
+from pprint import pprint
 
 import unittest
 
 from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
+SRC_DIR=os.path.dirname(__file__)
+SCREENSHOT_DIR=SRC_DIR+'/screenshot'
 
 
 class GoogleTestCase(unittest.TestCase):
@@ -24,6 +29,8 @@ class GoogleTestCase(unittest.TestCase):
   def testPageTitle(self):
     self.browser.get('http://www.google.com')
     self.assertIn('Google', self.browser.title)
+    self.browser.save_screenshot('{}/hellogoogle.png'.format(SCREENSHOT_DIR))
+
 
 if __name__ == '__main__':
   unittest.main(verbosity=2)
