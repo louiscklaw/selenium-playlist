@@ -12,13 +12,15 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 SRC_DIR=os.path.dirname(__file__)
 SCREENSHOT_DIR=SRC_DIR+'/screenshot'
 
+ENV_CI_TEST=os.getenv("CI_TEST")
+SELENIUM_HUB_HOST='192.168.99.96' if (ENV_CI_TEST is not None) else 'localhost'
 
 class GoogleTestCase(unittest.TestCase):
 
   def setUp(self):
     # self.browser = webdriver.Chrome()
     self.browser = webdriver.Remote(
-      command_executor='http://127.0.0.1:4444/wd/hub',
+      command_executor='http://{}:4444/wd/hub'.format(SELENIUM_HUB_HOST),
       desired_capabilities = {
         "browserName":"chrome",
         "version":"",

@@ -2,9 +2,10 @@
 
 set -ex
 
-export PROJ_HOME=/home/logic/_workspace/selenium-playlist
+export PROJ_HOME=chrome-selenium-hub-tryout
 
 PATH=$PATH:/home/logic/_workspace/selenium-playlist/chrome-helloworld-tryout
+
 
 cd $PROJ_HOME/_ref/docker-selenium
   docker-compose -f docker-compose-v3.yml pull
