@@ -1,0 +1,9 @@
+docker-selenium-hub-tryout:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+
+    - run: |
+      cd $HOME/_ref/docker-selenium
+        docker-compose -f docker-compose-v3.yml up
+      cd $HOME

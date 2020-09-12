@@ -1,11 +1,115 @@
 name: master_build
-
 on: [push]
 
 jobs:
-  appium-helloworld-tryout:
+
+  # 
+  # /home/logic/_workspace/selenium-playlist/chrome-selenium-hub-tryout/build.yml
+  # 
+  chrome-selenium-hub-tryout:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+  
+      - run: |
+        cd $HOME/_ref/docker-selenium
+          docker-compose -f docker-compose-v3.yml up
+        cd $HOME
+  
+      # - run: |
+      #     sudo apt update
+      #     sudo apt install -y python3 python3-pip python3-dev python3-wheel python3-setuptools
+      #     python3 -V
+      #     python3 -m pip install pipenv
+  
+      #     export PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
+      #     export PATH="$PATH:$PYTHON_BIN_PATH"
+  
+      #     export LC_ALL=C.UTF-8
+      #     export LANG=C.UTF-8
+  
+      #     pipenv --help
+      #     cd chrome-selenium-hub-tryout
+  
+  
+      #   env: # Or as an environment variable
+      #     SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+  
+  # 
+  # /home/logic/_workspace/selenium-playlist/docker-selenium-hub-tryout/build.yml
+  # 
+  docker-selenium-hub-tryout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+  
+      - run: |
+        cd $HOME/_ref/docker-selenium
+          docker-compose -f docker-compose-v3.yml up
+        cd $HOME
+  
 
-      - run: echo 'helloworld'
+  # 
+  # /home/logic/_workspace/selenium-playlist/github-build-merger/subjob.yml
+  # 
+  test_merger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+  
+      - name: run test
+        env: # Or as an environment variable
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+  
+        run: |
+          sudo apt update
+          sudo apt install -y python3 python3-pip python3-dev python3-wheel python3-setuptools
+          python3 -V
+          python3 -m pip install pipenv
+  
+          export PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
+          export PATH="$PATH:$PYTHON_BIN_PATH"
+  
+          export LC_ALL=C.UTF-8
+          export LANG=C.UTF-8
+  
+          pipenv --help
+          github-build-merger-tryout/test.sh
+  
+  merge:
+    needs: [test_merger, docker-selenium-hub-tryout, chrome-selenium-hub-tryout]
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+  
+      - name: run merge
+        env: # Or as an environment variable
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+  
+        run: |
+          sudo apt update
+          sudo apt install -y python3 python3-pip python3-dev python3-wheel python3-setuptools
+          python3 -V
+          python3 -m pip install pipenv
+  
+          export PYTHON_BIN_PATH="$(python3 -m site --user-base)/bin"
+          export PATH="$PATH:$PYTHON_BIN_PATH"
+  
+          export LC_ALL=C.UTF-8
+          export LANG=C.UTF-8
+  
+          cd github-build-merger-tryout
+            pipenv sync
+  
+            pipenv run python3 ./merge.py
+          cd ..
+  
+  
