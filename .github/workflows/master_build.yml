@@ -91,7 +91,7 @@ jobs:
           github-build-merger/test.sh
   
   merge:
-    needs: [test_merger, docker-selenium-hub-tryout, chrome-selenium-hub-tryout]
+    needs: [test_merger, chrome-selenium-hub-tryout, docker-selenium-hub-tryout]
     runs-on: ubuntu-latest
     steps:
       - name: checkout
