@@ -1,8 +1,12 @@
 .env
 
+**/results
+**/report
 **/reports
 **/node_modules
 **/build
+
+*.png
 
 # Logs
 logs
