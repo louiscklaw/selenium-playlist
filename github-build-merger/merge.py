@@ -308,6 +308,9 @@ def check_branch_exist(branch_name, cwd):
 def print_message(msg_text):
   print(chalk.blue(msg_text))
 
+def git_clone_source(PUSH_URI, TEMP_DIR):
+  local('git clone "{}" "{}"'.format(PUSH_URI, TEMP_DIR))
+
 def run_command(command_body, cwd=OS_CWD, ignore_error=True, except_in=MyException.command_error):
   if (DRY_RUN):
     return dummy_run_result()
