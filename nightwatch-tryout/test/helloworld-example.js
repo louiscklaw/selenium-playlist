@@ -1,5 +1,5 @@
 
-describe('Ecosia.org Demo', function() {
+describe('example.com Demo', function() {
 
   before(browser => browser.url('https://www.example.com/'));
 

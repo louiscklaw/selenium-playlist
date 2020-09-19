@@ -5,4 +5,7 @@ set -ex
 yarn
 
 yarn test
+
 yarn helloworld
+
+yarn dev

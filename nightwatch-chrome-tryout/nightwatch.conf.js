@@ -42,9 +42,9 @@ module.exports = {
           // More info on Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
           args: [
             //'--no-sandbox',
-            //'--ignore-certificate-errors',
-            //'--allow-insecure-localhost',
-            //'--headless'
+            '--ignore-certificate-errors',
+            '--allow-insecure-localhost',
+            '--headless'
           ]
         }
       },

@@ -8,3 +8,9 @@ nightwatch-chrome-tryout:
           yarn test
           yarn helloworld
         cd ..
+
+    - name: action-upload-artifact-tryout
+      uses: actions/upload-artifact@v2
+      with:
+        name: 'upload-artifact-tryout'
+        path: nightwatch-chrome-tryout/*.png
