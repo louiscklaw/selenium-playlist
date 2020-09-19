@@ -1,16 +1,16 @@
-describe('Ecosia.org Demo', function() {
 
-  before(browser => browser.url('https://www.ecosia.org/'));
+describe('example.com Demo', function() {
+
+  before(browser => browser.url('https://www.example.com/'));
 
   test('Demo test ecosia.org', function (browser) {
     browser
       .waitForElementVisible('body')
-      .assert.titleContains('Ecosia')
-      .assert.visible('input[type=search]')
-      .setValue('input[type=search]', 'nightwatch')
-      .assert.visible('button[type=submit]')
-      .click('button[type=submit]')
-      .assert.containsText('.mainline-results', 'Nightwatch.js')
+      .assert.titleContains('Example')
+      .assert.visible('h1')
+      .saveScreenshot('example.png')
+      // .waitForElementVisible('.small-footer-link-item')
+      // .assert.containsText('.mainline-results', 'Nightwatch.js')
   });
 
   after(browser => browser.end());
