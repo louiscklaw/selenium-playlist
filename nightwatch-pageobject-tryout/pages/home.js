@@ -13,6 +13,6 @@ module.exports = {
   commands: [searchCommands],
   elements: {
     searchBar: {selector: 'input[name=q]'},
-    submitButton: {selector: 'input[value="Google 搜尋"]'}
+    submitButton: {selector: 'input[value="Google Search"]'}
   }
 };

@@ -4,9 +4,9 @@ module.exports = {
     homePage.navigate();
     homePage.saveScreenshot('homePage.png')
 
-    // homePage.expect.element('@searchBar').to.be.enabled;
-    // homePage.setValue('@searchBar', 'Nightwatch.js');
-    // homePage.submit();
+    homePage.expect.element('@searchBar').to.be.enabled;
+    homePage.setValue('@searchBar', 'Nightwatch.js');
+    homePage.submit();
 
     // var resultsPage = client.page.searchResults();
     // resultsPage.saveScreenshot('resultsPage.png')
