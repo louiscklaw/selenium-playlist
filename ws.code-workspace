@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../appium-playlist"
+		},
+		{
+			"path": "../github-playlist"
 		}
 	],
 	"settings": {}

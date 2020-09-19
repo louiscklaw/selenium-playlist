@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
-set -ex
+set -x
 
 TEST=`echo $PWD|rev |cut -d'/' -f1 |rev`
 
 git checkout -b test/$TEST
+
+set -ex
 
 npm init -y
 
