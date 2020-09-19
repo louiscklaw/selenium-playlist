@@ -9,10 +9,10 @@ const searchCommands = {
 };
 
 module.exports = {
-  url: 'http://google.com',
+  url: 'https://www.google.com/',
   commands: [searchCommands],
   elements: {
     searchBar: {selector: 'input[name=q]'},
-    submitButton: {selector: 'input[value="Google Search"]'}
+    submitButton: {selector: 'input[type="submit"]'}
   }
 };
