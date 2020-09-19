@@ -8,8 +8,8 @@ module.exports = {
     homePage.setValue('@searchBar', 'Nightwatch.js');
     homePage.submit();
 
-    // var resultsPage = client.page.searchResults();
-    // resultsPage.saveScreenshot('resultsPage.png')
+    var resultsPage = client.page.searchResults();
+    resultsPage.saveScreenshot('resultsPage.png')
     // resultsPage.expect.element('@results').to.be.present.after(2000);
     // resultsPage.expect.element('@results').to.contain.text('Nightwatch.js');
     // resultsPage.expect.section('@menu').to.be.visible;
