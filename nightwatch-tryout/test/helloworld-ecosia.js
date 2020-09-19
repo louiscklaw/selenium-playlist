@@ -1,4 +1,3 @@
-
 describe('Ecosia.org Demo', function() {
 
   before(browser => browser.url('https://www.ecosia.org/'));
@@ -12,9 +11,9 @@ describe('Ecosia.org Demo', function() {
       .assert.visible('button[type=submit]')
       .click('button[type=submit]')
       .timeoutsImplicitWait(5000)
-      .saveScreenshot('test.png')
-      // .waitForElementVisible('.small-footer-link-item')
-      // .assert.containsText('.mainline-results', 'Nightwatch.js')
+      .saveScreenshot('ecosia.png')
+      // NOTE: cannot do search in github actions, IP range blocked
+      .assert.containsText('.mainline-results', 'Nightwatch.js')
   });
 
   after(browser => browser.end());

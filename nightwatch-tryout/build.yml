@@ -6,11 +6,12 @@ nightwatch-tryout:
         cd nightwatch-tryout
           yarn
           yarn test
-          yarn helloworld
+          yarn helloworld-ecosia
+          yarn helloworld-example
         cd ..
 
     - name: action-upload-artifact-tryout
       uses: actions/upload-artifact@v2
       with:
         name: 'upload-artifact-tryout'
-        path: nightwatch-tryout/test.png
+        path: nightwatch-tryout/*.png
