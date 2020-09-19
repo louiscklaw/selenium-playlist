@@ -4,20 +4,6 @@ on: [push]
 jobs:
 
   # 
-  # /home/logic/_workspace/selenium-playlist/nightwatch-html-reporter-tryout/build.yml
-  # 
-  nightwatch-html-reporter-tryout:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: |
-          cd nightwatch-html-reporter-tryout
-            yarn
-            yarn test
-            yarn helloworld
-          cd ..
-  
-  # 
   # /home/logic/_workspace/selenium-playlist/nightwatch-pageobject-tryout/build.yml
   # 
   nightwatch-pageobject-tryout:
@@ -91,7 +77,7 @@ jobs:
           github-build-merger/test.sh
   
   merge:
-    needs: [nightwatch-html-reporter-tryout, nightwatch-pageobject-tryout, nightwatch-tryout, test_merger]
+    needs: [nightwatch-pageobject-tryout, nightwatch-tryout, test_merger]
     runs-on: ubuntu-latest
     steps:
       - name: checkout
