@@ -29,8 +29,13 @@ jobs:
             yarn
             yarn test
             yarn helloworld
-            yarn dev
           cd ..
+  
+      - name: action-upload-artifact-tryout
+        uses: actions/upload-artifact@v2
+        with:
+          name: 'upload-artifact-tryout'
+          path: nightwatch-pageobject-tryout/*.png
   
   # 
   # /home/logic/_workspace/selenium-playlist/nightwatch-tryout/build.yml
