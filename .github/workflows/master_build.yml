@@ -58,6 +58,95 @@ jobs:
             docker-compose -f docker-compose-v3.yml up -d
           cd $GITHUB_WORKSPACE
   
+  # 
+  # /home/logic/_workspace/selenium-playlist/nightwatch-chrome-tryout/build.yml
+  # 
+  nightwatch-chrome-tryout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          cd nightwatch-chrome-tryout
+            yarn
+            yarn test
+            yarn helloworld
+          cd ..
+  
+      - name: action-upload-artifact-tryout
+        uses: actions/upload-artifact@v2
+        with:
+          name: 'upload-artifact-tryout'
+          path: nightwatch-chrome-tryout/*.png
+  
+  # 
+  # /home/logic/_workspace/selenium-playlist/nightwatch-html-reporter-tryout/build.yml
+  # 
+  nightwatch-html-reporter-tryout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          cd nightwatch-html-reporter-tryout
+            yarn
+            yarn test
+            yarn helloworld
+          cd ..
+  
+  # 
+  # /home/logic/_workspace/selenium-playlist/nightwatch-pageobject-tryout/build.yml
+  # 
+  nightwatch-pageobject-tryout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          cd nightwatch-pageobject-tryout
+            yarn
+            yarn test
+            yarn helloworld
+          cd ..
+  
+      - name: action-upload-artifact-tryout
+        uses: actions/upload-artifact@v2
+        with:
+          name: 'upload-artifact-tryout'
+          path: nightwatch-pageobject-tryout/*.png
+  
+  # 
+  # /home/logic/_workspace/selenium-playlist/nightwatch-tags-tryout/build.yml
+  # 
+  nightwatch-tags-tryout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          cd nightwatch-tags-tryout
+            yarn
+            yarn test
+            yarn dev
+          cd ..
+  
+  # 
+  # /home/logic/_workspace/selenium-playlist/nightwatch-tryout/build.yml
+  # 
+  nightwatch-tryout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          cd nightwatch-tryout
+            yarn
+            yarn test
+            yarn helloworld-ecosia
+            yarn helloworld-example
+          cd ..
+  
+      - name: action-upload-artifact-tryout
+        uses: actions/upload-artifact@v2
+        with:
+          name: 'upload-artifact-tryout'
+          path: nightwatch-tryout/*.png
+  
   
 
   # 
@@ -91,7 +180,7 @@ jobs:
           github-build-merger/test.sh
   
   merge:
-    needs: [test_merger, chrome-selenium-hub-tryout, docker-selenium-hub-tryout]
+    needs: [chrome-selenium-hub-tryout, docker-selenium-hub-tryout, nightwatch-chrome-tryout, nightwatch-html-reporter-tryout, nightwatch-pageobject-tryout, nightwatch-tags-tryout, nightwatch-tryout, test_merger]
     runs-on: ubuntu-latest
     steps:
       - name: checkout

@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo test helloworld",
-    "helloworld": "nightwatch ./test/helloworld.js",
-    "gen_report": "nightwatch-html-reporter -d reports"
+    "helloworld": "nightwatch ./test/helloworld.js --headless",
+    "gen_report": "nightwatch-html-reporter -d reports",
+    "dev":"nightwatch ./test/test_tags.js"
   },
   "keywords": [],
   "author": "",
