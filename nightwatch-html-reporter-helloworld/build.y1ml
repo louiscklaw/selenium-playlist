@@ -1,0 +1,10 @@
+nightwatch-helloworld:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+    - run: |
+        cd nightwatch-helloworld
+          yarn
+          yarn test
+          yarn helloworld
+        cd ..
