@@ -1,0 +1,16 @@
+{
+  "name": "mocha-helloworld",
+  "version": "1.0.0",
+  "description": "",
+  "main": "helloworld.js",
+  "dependencies": {
+    "mocha": "^8.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
