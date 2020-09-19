@@ -16,14 +16,14 @@ module.exports = {
 
     var menuSection = resultsPage.section.menu;
     menuSection.saveScreenshot('menuSection.png')
-    // menuSection.expect.element('@web').to.be.visible;
-    // menuSection.expect.element('@video').to.be.visible;
-    // menuSection.expect.element('@images').to.be.visible;
-    // menuSection.expect.element('@shopping').to.be.visible;
+    menuSection.expect.element('@web').to.be.visible;
+    menuSection.expect.element('@video').to.be.visible;
+    menuSection.expect.element('@images').to.be.visible;
+    menuSection.expect.element('@shopping').to.be.visible;
 
-    // menuSection.productIsSelected('@web', function(result) {
-    //   this.assert.ok(result, 'Web results are shown by default on search results page');
-    // });
+    menuSection.productIsSelected('@web', function(result) {
+      this.assert.ok(result, 'Web results are shown by default on search results page');
+    });
 
     client.end();
   }
