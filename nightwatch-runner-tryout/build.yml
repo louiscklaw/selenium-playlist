@@ -1,0 +1,17 @@
+nightwatch-runner-tryout:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+    - run: |
+        cd nightwatch-runner-tryout
+          yarn
+          yarn test
+          yarn helloworld
+          yarn group_helloworlds
+        cd ..
+
+    - name: action-upload-artifact-tryout
+      uses: actions/upload-artifact@v2
+      with:
+        name: 'upload-artifact-tryout'
+        path: nightwatch-runner-tryout/*.png
