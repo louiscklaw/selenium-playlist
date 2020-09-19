@@ -7,4 +7,5 @@ nightwatch-pageobject-tryout:
           yarn
           yarn test
           yarn helloworld
+          yarn dev
         cd ..
