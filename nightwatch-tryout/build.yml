@@ -14,4 +14,4 @@ nightwatch-tryout:
       uses: actions/upload-artifact@v2
       with:
         name: 'upload-artifact-tryout'
-        path: *.png
+        path: nightwatch-tryout/*.png
