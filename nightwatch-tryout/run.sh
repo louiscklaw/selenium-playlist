@@ -5,4 +5,6 @@ set -ex
 yarn
 
 yarn test
-yarn helloworld
+
+yarn helloworld-ecosia
+yarn helloworld-example
