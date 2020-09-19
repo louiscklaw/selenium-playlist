@@ -1,0 +1,11 @@
+docker-selenium-hub-tryout:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: 'recursive'
+
+    - run: |
+        cd $GITHUB_WORKSPACE/_ref/docker-selenium
+          docker-compose -f docker-compose-v3.yml up -d
+        cd $GITHUB_WORKSPACE

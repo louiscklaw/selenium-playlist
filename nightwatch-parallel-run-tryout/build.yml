@@ -1,0 +1,16 @@
+nightwatch-parallel-run-tryout:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+    - run: |
+        cd nightwatch-parallel-run-tryout
+          yarn
+          yarn test
+          yarn helloworld
+        cd ..
+
+    - name: action-upload-artifact-tryout
+      uses: actions/upload-artifact@v2
+      with:
+        name: 'upload-artifact-tryout'
+        path: nightwatch-parallel-run-tryout/*.png
