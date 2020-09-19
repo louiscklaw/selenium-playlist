@@ -1,0 +1,16 @@
+nightwatch-pageobject-tryout:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+    - run: |
+        cd nightwatch-pageobject-tryout
+          yarn
+          yarn test
+          yarn helloworld
+        cd ..
+
+    - name: action-upload-artifact-tryout
+      uses: actions/upload-artifact@v2
+      with:
+        name: 'upload-artifact-tryout'
+        path: nightwatch-pageobject-tryout/*.png

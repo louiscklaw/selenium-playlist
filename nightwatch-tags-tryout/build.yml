@@ -1,0 +1,10 @@
+nightwatch-tags-tryout:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+    - run: |
+        cd nightwatch-tags-tryout
+          yarn
+          yarn test
+          yarn dev
+        cd ..
