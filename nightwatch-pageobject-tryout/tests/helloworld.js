@@ -21,9 +21,9 @@ module.exports = {
     // menuSection.expect.element('@images').to.be.visible;
     // menuSection.expect.element('@shopping').to.be.visible;
 
-    menuSection.productIsSelected('@web', function(result) {
-      this.assert.ok(result, 'Web results are shown by default on search results page');
-    });
+    // menuSection.productIsSelected('@web', function(result) {
+    //   this.assert.ok(result, 'Web results are shown by default on search results page');
+    // });
 
     client.end();
   }
