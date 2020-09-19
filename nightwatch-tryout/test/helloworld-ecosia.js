@@ -10,6 +10,9 @@ describe('Ecosia.org Demo', function() {
       .setValue('input[type=search]', 'nightwatch')
       .assert.visible('button[type=submit]')
       .click('button[type=submit]')
+      .timeoutsImplicitWait(5000)
+      .saveScreenshot('ecosia.png')
+      // NOTE: cannot do search in github actions, IP range blocked
       .assert.containsText('.mainline-results', 'Nightwatch.js')
   });
 
