@@ -1,9 +1,9 @@
-nightwatch-helloworld:
+nightwatch-html-reporter-helloworld:
   runs-on: ubuntu-latest
   steps:
     - uses: actions/checkout@v2
     - run: |
-        cd nightwatch-helloworld
+        cd nightwatch-html-reporter-helloworld
           yarn
           yarn test
           yarn helloworld
