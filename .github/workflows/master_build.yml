@@ -44,6 +44,26 @@ jobs:
           path: nightwatch-pageobject-tryout/*.png
   
   # 
+  # /home/logic/_workspace/selenium-playlist/nightwatch-parallel-run-tryout/build.yml
+  # 
+  nightwatch-parallel-run-tryout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          cd nightwatch-parallel-run-tryout
+            yarn
+            yarn test
+            yarn helloworld
+          cd ..
+  
+      - name: action-upload-artifact-tryout
+        uses: actions/upload-artifact@v2
+        with:
+          name: 'upload-artifact-tryout'
+          path: nightwatch-parallel-run-tryout/*.png
+  
+  # 
   # /home/logic/_workspace/selenium-playlist/nightwatch-tags-tryout/build.yml
   # 
   nightwatch-tags-tryout:
@@ -111,7 +131,7 @@ jobs:
           github-build-merger/test.sh
   
   merge:
-    needs: [nightwatch-chrome-tryout, nightwatch-pageobject-tryout, nightwatch-tags-tryout, nightwatch-tryout, test_merger]
+    needs: [nightwatch-chrome-tryout, nightwatch-pageobject-tryout, nightwatch-parallel-run-tryout, nightwatch-tags-tryout, nightwatch-tryout, test_merger]
     runs-on: ubuntu-latest
     steps:
       - name: checkout
