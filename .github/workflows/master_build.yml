@@ -4,6 +4,26 @@ on: [push]
 jobs:
 
   # 
+  # /home/logic/_workspace/selenium-playlist/nightwatch-chrome-tryout/build.yml
+  # 
+  nightwatch-chrome-tryout:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          cd nightwatch-chrome-tryout
+            yarn
+            yarn test
+            yarn helloworld
+          cd ..
+  
+      - name: action-upload-artifact-tryout
+        uses: actions/upload-artifact@v2
+        with:
+          name: 'upload-artifact-tryout'
+          path: nightwatch-chrome-tryout/*.png
+  
+  # 
   # /home/logic/_workspace/selenium-playlist/nightwatch-pageobject-tryout/build.yml
   # 
   nightwatch-pageobject-tryout:
@@ -77,7 +97,7 @@ jobs:
           github-build-merger/test.sh
   
   merge:
-    needs: [nightwatch-pageobject-tryout, nightwatch-tryout, test_merger]
+    needs: [nightwatch-chrome-tryout, nightwatch-pageobject-tryout, nightwatch-tryout, test_merger]
     runs-on: ubuntu-latest
     steps:
       - name: checkout
