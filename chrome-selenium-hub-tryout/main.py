@@ -19,8 +19,11 @@ class GoogleTestCase(unittest.TestCase):
 
   def setUp(self):
     # self.browser = webdriver.Chrome()
+    selenium_url = 'http://{}:4444/wd/hub'.format(SELENIUM_HUB_HOST)
+    print(selenium_url)
+
     self.browser = webdriver.Remote(
-      command_executor='http://{}:4444/wd/hub'.format(SELENIUM_HUB_HOST),
+      command_executor=selenium_url,
       desired_capabilities = {
         "browserName":"chrome",
         "version":"",
