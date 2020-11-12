@@ -1,4 +1,4 @@
-chrome-selenium-hub-tryout:
+selenium-page-object-tryout:
   runs-on: ubuntu-latest
   steps:
     - uses: actions/checkout@v2
@@ -24,7 +24,7 @@ chrome-selenium-hub-tryout:
 
         pipenv --help
 
-        cd $GITHUB_WORKSPACE/chrome-selenium-hub-tryout
+        cd $GITHUB_WORKSPACE/selenium-page-object-tryout
           pipenv sync
           pipenv run python3 ./main.py
         cd $GITHUB_WORKSPACE

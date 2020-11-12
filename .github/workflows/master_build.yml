@@ -175,7 +175,7 @@ jobs:
   # 
   # /home/logic/_workspace/selenium-playlist/selenium-page-object-tryout/build.yml
   # 
-  chrome-selenium-hub-tryout:
+  selenium-page-object-tryout:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -201,7 +201,7 @@ jobs:
   
           pipenv --help
   
-          cd $GITHUB_WORKSPACE/chrome-selenium-hub-tryout
+          cd $GITHUB_WORKSPACE/selenium-page-object-tryout
             pipenv sync
             pipenv run python3 ./main.py
           cd $GITHUB_WORKSPACE
@@ -249,7 +249,7 @@ jobs:
           github-build-merger/test.sh
   
   merge:
-    needs: [chrome-selenium-hub-tryout, chrome-selenium-hub-tryout, docker-selenium-hub-tryout, nightwatch-chrome-tryout, nightwatch-html-reporter-tryout, nightwatch-pageobject-tryout, nightwatch-parallel-run-tryout, nightwatch-tags-tryout, nightwatch-tryout, test_merger]
+    needs: [chrome-selenium-hub-tryout, docker-selenium-hub-tryout, nightwatch-chrome-tryout, nightwatch-html-reporter-tryout, nightwatch-pageobject-tryout, nightwatch-parallel-run-tryout, nightwatch-tags-tryout, nightwatch-tryout, selenium-page-object-tryout, test_merger]
     runs-on: ubuntu-latest
     steps:
       - name: checkout
