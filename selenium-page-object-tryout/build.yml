@@ -6,12 +6,12 @@ selenium-page-object-tryout:
         submodules: 'recursive'
 
     - run: |
-        cd $GITHUB_WORKSPACE/_ref/docker-selenium
+        pushd $GITHUB_WORKSPACE/selenium-page-object-tryout
           ./scripts/up_docker_selenium.sh &
 
           echo 'sleep a while to let docker steady'
           sleep 30
-        cd $GITHUB_WORKSPACE
+        popd
 
     - run: |
         sudo apt update
@@ -27,10 +27,10 @@ selenium-page-object-tryout:
 
         pipenv --help
 
-        cd $GITHUB_WORKSPACE/selenium-page-object-tryout
+        pushd $GITHUB_WORKSPACE/selenium-page-object-tryout
           pipenv sync
           pipenv run python3 ./main.py
-        cd $GITHUB_WORKSPACE
+        popd
 
       env: # Or as an environment variable
         SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
