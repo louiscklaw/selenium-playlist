@@ -2,7 +2,8 @@
 
 set -ex
 
-PATH=$PATH:/home/logic/_workspace/selenium-playlist/drivers/firefox/0.27.0
+REPO_HOME=..
+PATH=$PATH:$REPO_HOME/drivers/firefox/0.27.0
 
 pipenv sync
 pipenv run python3 ./test_firefox.py
