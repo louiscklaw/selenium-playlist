@@ -7,7 +7,7 @@ import page
 
 ENV_CI=os.getenv('CI')
 ENV_CI_TEST=os.getenv("CI_TEST")
-SELENIUM_HUB_HOST='192.168.99.96' if (ENV_CI is not None) else 'localhost'
+SELENIUM_HUB_HOST='localhost'
 
 SRC_DIR=os.path.dirname(__file__)
 SCREENSHOT_DIR=SRC_DIR+'/screenshot'
