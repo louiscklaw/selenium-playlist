@@ -9,5 +9,5 @@ PATH=$PATH:$REPO_HOME/chrome-helloworld-tryout
 
 cd $REPO_HOME/_ref/docker-selenium
   docker-compose -f docker-compose-v3.yml pull
-  docker-compose -f docker-compose-v3.yml up -d
+  docker-compose -f docker-compose-v3.yml up
 cd $REPO_HOME

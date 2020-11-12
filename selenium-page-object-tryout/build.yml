@@ -7,7 +7,10 @@ selenium-page-object-tryout:
 
     - run: |
         cd $GITHUB_WORKSPACE/_ref/docker-selenium
-          docker-compose -f docker-compose-v3.yml up -d
+          ./scripts/up_docker_selenium.sh &
+
+          echo 'sleep a while to let docker steady'
+          sleep 30
         cd $GITHUB_WORKSPACE
 
     - run: |
@@ -37,4 +40,4 @@ selenium-page-object-tryout:
     - uses: actions/upload-artifact@v2
       with:
         name: 'upload-artifact-tryout'
-        path: chrome-helloworld-tryout/*.png
+        path: selenium-page-object-tryout/*.png

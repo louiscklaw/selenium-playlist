@@ -11,7 +11,10 @@ export REPO_HOME=..
 PATH=$PATH:$REPO_HOME/drivers/chrome/85
 PATH=$PATH:$REPO_HOME/drivers/firefox/0.27.0
 
-./scripts/up_docker_selenium.sh
+echo 'clear screenshot directory'
+rm -rf screenshot/*.png
+
+./scripts/up_docker_selenium.sh &
 
 echo 'sleep a while to let docker steady'
 sleep 30
