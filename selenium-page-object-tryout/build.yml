@@ -40,4 +40,4 @@ selenium-page-object-tryout:
     - uses: actions/upload-artifact@v2
       with:
         name: 'upload-artifact-tryout'
-        path: selenium-page-object-tryout/*.png
+        path: selenium-page-object-tryout/screenshot/*.png
