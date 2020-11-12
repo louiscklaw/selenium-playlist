@@ -2,7 +2,9 @@
 
 set -ex
 
-export REPO_HOME=..
+export SCRIPT_DIR=.
+export PROJ_HOME=$SCRIPT_DIR/..
+export REPO_HOME=$PROJ_HOME/..
 
 PATH=$PATH:$REPO_HOME/chrome-helloworld-tryout
 
