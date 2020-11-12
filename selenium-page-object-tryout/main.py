@@ -1,66 +1,34 @@
-#!/usr/bin/env python3
-# https://www.selenium.dev/selenium/docs/api/py/webdriver_remote/selenium.webdriver.remote.webdriver.html#module-selenium.webdriver.remote.webdriver
-# https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities
-import os,sys
-from pprint import pprint
-
 import unittest
-
 from selenium import webdriver
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+import page
 
-SRC_DIR=os.path.dirname(__file__)
-SCREENSHOT_DIR=SRC_DIR+'/screenshot'
+class PythonOrgSearch(unittest.TestCase):
+    """A sample test class to show how page object works"""
 
-ENV_CI=os.getenv('CI')
-ENV_CI_TEST=os.getenv("CI_TEST")
-SELENIUM_HUB_HOST='192.168.99.96' if (ENV_CI is not None) else 'localhost'
+    def setUp(self):
+        self.driver = webdriver.Firefox()
+        self.driver.get("http://www.python.org")
 
-class GoogleTestCase(unittest.TestCase):
+    def test_search_in_python_org(self):
+        """
+        Tests python.org search feature. Searches for the word "pycon" then verified that some results show up.
+        Note that it does not look for any particular text in search results page. This test verifies that
+        the results were not empty.
+        """
 
-  def setUp(self):
-    # self.browser = webdriver.Chrome()
-    selenium_url = 'http://{}:4444/wd/hub'.format(SELENIUM_HUB_HOST)
-    print(selenium_url)
+        #Load the main page. In this case the home page of Python.org.
+        main_page = page.MainPage(self.driver)
+        #Checks if the word "Python" is in title
+        assert main_page.is_title_matches(), "python.org title doesn't match."
+        #Sets the text of search textbox to "pycon"
+        main_page.search_text_element = "pycon"
+        main_page.click_go_button()
+        search_results_page = page.SearchResultsPage(self.driver)
+        #Verifies that the results page is not empty
+        assert search_results_page.is_results_found(), "No results found."
 
-    self.browser = webdriver.Remote(
-      command_executor=selenium_url,
-      desired_capabilities = {
-        "browserName":"chrome",
-        "version":"",
-        "platform":"LINUX"
-        })
-    self.addCleanup(self.browser.quit)
+    def tearDown(self):
+        self.driver.close()
 
-  def testPageTitle(self):
-    self.browser.get('http://www.google.com')
-    self.assertIn('Google', self.browser.title)
-    self.browser.save_screenshot('{}/hellogoogle.png'.format(SCREENSHOT_DIR))
-
-
-if __name__ == '__main__':
-  unittest.main(verbosity=2)
-
-
-# class GoogleTestCase(unittest.TestCase):
-
-#   def setUp(self):
-    # self.browser = webdriver.Remote(
-    #   command_executor='http://127.0.0.1:4444/wd/hub',
-    #   desired_capabilities = {'desired_capabilities': webdriver.DesiredCapabilities.CHROME.copy()})
-
-#     self.addCleanup(self.browser.quit)
-
-#   def testPageTitle(self):
-#     self.browser.get('http://www.google.com')
-#     self.assertIn('Google', self.browser.title)
-
-# if __name__ == '__main__':
-#   unittest.main(verbosity=2)
-
-
-# # driver = webdriver.Remote(
-# #    command_executor='http://127.0.0.1:4444/wd/hub',
-# #    desired_capabilities=DesiredCapabilities.OPERA)
-
-# # driver.go
+if __name__ == "__main__":
+    unittest.main()

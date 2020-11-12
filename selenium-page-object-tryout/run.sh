@@ -9,6 +9,7 @@ set -ex
 export REPO_HOME=..
 
 PATH=$PATH:$REPO_HOME/drivers/chrome/85
+PATH=$PATH:$REPO_HOME/drivers/firefox/0.27.0
 
 ./scripts/up_docker_selenium.sh
 
