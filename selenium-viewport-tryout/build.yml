@@ -1,4 +1,4 @@
-selenium-viewport-tryout:
+selenium-page-object-tryout:
   runs-on: ubuntu-latest
   steps:
     - uses: actions/checkout@v2
@@ -6,7 +6,7 @@ selenium-viewport-tryout:
         submodules: 'recursive'
 
     - run: |
-        pushd $GITHUB_WORKSPACE/selenium-viewport-tryout
+        pushd $GITHUB_WORKSPACE/selenium-page-object-tryout
           ./scripts/up_docker_selenium.sh &
 
           echo 'sleep a while to let docker steady'
@@ -27,7 +27,7 @@ selenium-viewport-tryout:
 
         pipenv --help
 
-        pushd $GITHUB_WORKSPACE/selenium-viewport-tryout
+        pushd $GITHUB_WORKSPACE/selenium-page-object-tryout
           pipenv sync
           pipenv run python3 ./main.py
         popd
@@ -40,4 +40,4 @@ selenium-viewport-tryout:
     - uses: actions/upload-artifact@v2
       with:
         name: 'upload-artifact-tryout'
-        path: selenium-viewport-tryout/screenshot/*.png
+        path: selenium-page-object-tryout/screenshot/*.png
