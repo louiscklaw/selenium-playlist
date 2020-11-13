@@ -6,20 +6,19 @@ set -ex
 # export CI_TEST=1
 # export GITHUB_REPOSITORY=$(GET_SHORT_REPOSITORY)
 
-export REPO_HOME=..
+function shutdown {
+    ./scripts/down_docker_selenium.sh
+    echo "Shutdown complete"
+}
 
-PATH=$PATH:$REPO_HOME/drivers/chrome/85
-PATH=$PATH:$REPO_HOME/drivers/firefox/0.27.0
+trap shutdown SIGTERM SIGINT EXIT
 
-echo 'clear screenshot directory'
-rm -rf screenshot/*.png
+# export REPO_HOME=..
+# PATH=$PATH:$REPO_HOME/drivers/chrome/85
 
-./scripts/up_docker_selenium.sh &
+./scripts/up_docker_selenium.sh
 
 echo 'sleep a while to let docker steady'
 sleep 30
 
-pipenv sync
-pipenv run python3 ./main.py
-
-./scripts/down_docker_selenium.sh
+./test.sh

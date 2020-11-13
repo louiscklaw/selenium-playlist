@@ -3,14 +3,8 @@ from pprint import pprint
 
 import unittest
 from selenium import webdriver
-import page
-
-ENV_CI=os.getenv('CI')
-ENV_CI_TEST=os.getenv("CI_TEST")
-SELENIUM_HUB_HOST='localhost'
-
-SRC_DIR=os.path.dirname(__file__)
-SCREENSHOT_DIR=SRC_DIR+'/screenshot'
+from pages import page
+from config import *
 
 class PythonOrgSearch(unittest.TestCase):
     """A sample test class to show how page object works"""
