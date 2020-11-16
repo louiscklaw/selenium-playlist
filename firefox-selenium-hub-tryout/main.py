@@ -31,7 +31,7 @@ class GoogleTestCase(unittest.TestCase):
     self.addCleanup(self.browser.quit)
 
   def testPageTitle(self):
-    self.browser.get('https://www.mozilla.org')
+    self.browser.get('https://www.google.com')
     self.assertIn('Google', self.browser.title)
     self.browser.save_screenshot('{}/helloworld.png'.format(SCREENSHOT_DIR))
 
