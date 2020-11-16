@@ -2,8 +2,6 @@
 
 set -ex
 
-TMP_ORPHAN_BRANCH=$(mktemp -d)
-
 function shutdown {
     # ./scripts/down_docker_selenium.sh
     # rm -rf $TMP_ORPHAN_BRANCH
@@ -12,8 +10,12 @@ function shutdown {
 
 trap shutdown SIGTERM SIGINT EXIT
 
-REPO_HOME=..
-PATH=$PATH:$REPO_HOME/drivers/chrome/85
+export PROJ_HOME=$(dirname $0)
+export REPO_HOME=$(realpath $PROJ_HOME)
+export PATH=$PATH:$REPO_HOME/drivers/chrome/85
+
+TMP_ORPHAN_BRANCH=$(mktemp -d)
+
 
 pushd src
   pipenv sync
