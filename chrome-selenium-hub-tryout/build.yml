@@ -8,6 +8,7 @@ chrome-selenium-hub-tryout:
     - run: |
         cd $GITHUB_WORKSPACE/_ref/docker-selenium
           docker-compose -f docker-compose-v3.yml up -d
+          sleep 30
         cd $GITHUB_WORKSPACE
 
     - run: |
