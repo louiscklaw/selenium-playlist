@@ -8,7 +8,7 @@ jobs:
   # /home/logic/_workspace/selenium-playlist/chrome-selenium-hub-tryout/build.yml
   # 
   chrome-selenium-hub-tryout:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
         with:
@@ -17,6 +17,7 @@ jobs:
       - run: |
           cd $GITHUB_WORKSPACE/_ref/docker-selenium
             docker-compose -f docker-compose-v3.yml up -d
+            sleep 30
           cd $GITHUB_WORKSPACE
   
       - run: |
@@ -45,8 +46,8 @@ jobs:
   
       - uses: actions/upload-artifact@v2
         with:
-          name: 'upload-artifact-tryout'
-          path: chrome-helloworld-tryout/*.png
+          name: 'chrome-selenium-hub-tryout'
+          path: chrome-selenium-hub-tryout/screenshot/*.png
   
   # 
   # /home/logic/_workspace/selenium-playlist/docker-selenium-hub-tryout/build.yml
@@ -264,7 +265,7 @@ jobs:
           path: selenium-page-object-tryout/screenshot/*.png
   
   # 
-  # /home/logic/_workspace/selenium-playlist/selenium-viewport-tryout/build.yml
+  # /home/logic/_workspace/selenium-playlist/selenium-viewport-tryout-old/build.yml
   # 
   selenium-viewport-tryout:
     runs-on: ubuntu-latest
