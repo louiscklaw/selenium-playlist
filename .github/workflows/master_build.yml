@@ -105,8 +105,8 @@ jobs:
   
       - uses: actions/upload-artifact@v2
         with:
-          name: 'upload-artifact-tryout'
-          path: chrome-helloworld-tryout/*.png
+          name: 'firefox-selenium-hub-tryout'
+          path: firefox-selenium-hub-tryout/screenshot/*.png
   
   # 
   # /home/logic/_workspace/selenium-playlist/nightwatch-chrome-tryout/build.yml
