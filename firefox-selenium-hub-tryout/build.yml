@@ -36,5 +36,5 @@ firefox-selenium-hub-tryout:
 
     - uses: actions/upload-artifact@v2
       with:
-        name: 'upload-artifact-tryout'
-        path: chrome-helloworld-tryout/*.png
+        name: 'firefox-selenium-hub-tryout'
+        path: firefox-selenium-hub-tryout/screenshot/*.png
