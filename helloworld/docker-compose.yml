@@ -34,6 +34,6 @@ services:
     image: selenium/hub:4.3.0-20220628
     container_name: selenium-hub
     ports:
-      - "4442:4442"
-      - "4443:4443"
-      - "4444:4444"
+      - "5442:4442"
+      - "5443:4443"
+      - "5444:4444"
