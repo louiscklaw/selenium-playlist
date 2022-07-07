@@ -2,7 +2,7 @@ version: "3"
 services:
   chrome:
     image: selenium/node-chrome:latest
-    shm_size: 2gb
+    shm_size: &shm-size 2G
     depends_on:
       - selenium-hub
     environment:
@@ -11,10 +11,13 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_MAX_CONCURRENT_SESSIONS=3
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_SCREEN_WIDTH=1920
+      - SE_SCREEN_HEIGHT=1080
+      - SE_NODE_MAX_INSTANCES=4
 
   edge:
     image: selenium/node-edge:latest
-    shm_size: 2gb
+    shm_size: &shm-size 2G
     depends_on:
       - selenium-hub
     environment:
@@ -23,10 +26,13 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_MAX_CONCURRENT_SESSIONS=3
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_SCREEN_WIDTH=1920
+      - SE_SCREEN_HEIGHT=1080
+      - SE_NODE_MAX_INSTANCES=4
 
   firefox:
     image: selenium/node-firefox:latest
-    shm_size: 2gb
+    shm_size: &shm-size 2G
     depends_on:
       - selenium-hub
     environment:
@@ -35,6 +41,9 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_MAX_CONCURRENT_SESSIONS=3
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_SCREEN_WIDTH=1920
+      - SE_SCREEN_HEIGHT=1080
+      - SE_NODE_MAX_INSTANCES=4
 
   selenium-hub:
     image: selenium/hub:latest
