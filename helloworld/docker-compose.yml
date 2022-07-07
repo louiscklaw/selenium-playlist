@@ -14,7 +14,6 @@ services:
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
       - SE_SCREEN_WIDTH=1920
       - SE_SCREEN_HEIGHT=1080
-      - SE_NODE_MAX_INSTANCES=4
 
   edge:
     image: selenium/node-edge:latest
@@ -30,7 +29,6 @@ services:
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
       - SE_SCREEN_WIDTH=1920
       - SE_SCREEN_HEIGHT=1080
-      - SE_NODE_MAX_INSTANCES=4
 
   firefox:
     image: selenium/node-firefox:latest
@@ -46,7 +44,6 @@ services:
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
       - SE_SCREEN_WIDTH=1920
       - SE_SCREEN_HEIGHT=1080
-      - SE_NODE_MAX_INSTANCES=4
 
   selenium-hub:
     image: selenium/hub:latest
