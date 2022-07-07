@@ -10,6 +10,7 @@ services:
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_MAX_CONCURRENT_SESSIONS=3
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
 
   edge:
     image: selenium/node-edge:latest
@@ -21,6 +22,7 @@ services:
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_MAX_CONCURRENT_SESSIONS=3
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
 
   firefox:
     image: selenium/node-firefox:latest
@@ -32,6 +34,7 @@ services:
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_MAX_CONCURRENT_SESSIONS=3
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
 
   selenium-hub:
     image: selenium/hub:latest
