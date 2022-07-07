@@ -1,7 +1,7 @@
 describe("example.com Demo", function () {
   before((browser) => browser.url("https://www.example.com/"));
 
-  test("Demo test ecosia.org", function (browser) {
+  test("Demo test example.com", function (browser) {
     browser
       .waitForElementVisible("body")
       .assert.titleContains("Example")
