@@ -6,7 +6,7 @@
   "scripts": {
     "test": "nightwatch",
     "helloworld": "nightwatch",
-    "dev": "nightwatch ./tests/helloworld.js  --verbose",
+    "dev": "nightwatch ./tests/*.js  --verbose",
     "gitSync": "git fetch --all && git pull",
     "gitUpdate": "git add . && git commit -m\"update selenium-helloworld,\" && yarn gitSync && git push"
   },
